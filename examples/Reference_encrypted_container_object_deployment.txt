@@ -1,0 +1,22 @@
+== A reference implementation of automatically deploying an encrypted storage container ==
+
+Dependencies:
+
+Veracrypt version 1.22 (https://veracrypt.fr)
+
+
+### Note: Please do not use this exact same reference example, with the exact same personal iterations multiplier (PIM) and passwords oused in this example to implement any production or test systems. If you do, please try to understand the implications of using encryption containers with default passwords. Hint: All this work towards encrypting data becomes pointless!!!
+
+In this example, the encrypted storage container object has the following properties:
+
+1) Create an encrypted storage container object at: ./veracrypt.volume
+2) PIM value of 3
+3) Normal volume type
+4) Stores ~205 MB of data
+5) Uses SHA-512 hashing algorithm
+6) Formatted using NTFS file system
+7) Uses AES encryption scheme
+8) Entropy using random alphabets and numbers: qWVluHI1Ex8rtSQ8jeM8aoeZoUFAZhb8B5zvRjXxbc9vu49UofvrvzHRGk5hOCTevSWmrkZjjRPgR7NcVO3UQy5F4h9fMiVPf0NR8z4GLa8Bpkgs3p37obNpSBM6f4MkpURT0Whjp2CjLBvqcuIlKCyQ8gsRa7Mm2Jos8TDShGwNASPAbF7hJ12TKBM652vwg4PS73usc16K1TBY1H4WKFVQ3XyVYKshG2EVmbXBKNBNglAVCO5EcZnlIHmJLY7nvMKakqBM4ncjnUK0MyBR7eLfCE0X2Fj7uTRSz5WcZ4d3YrMa8jYsgmnPpsd65JN6
+9) Password for the encrypted storage object: 3UArzGgtqgaPNqa5gjI0VbVaiGf7TJCenwD1mna5VXq6THXSUQXiBx4CGi12Lrkk
+
+$ printf './vercarypt.volume\n3\n\n\nqWVluHI1Ex8rtSQ8jeM8aoeZoUFAZhb8B5zvRjXxbc9vu49UofvrvzHRGk5hOCTevSWmrkZjjRPgR7NcVO3UQy5F4h9fMiVPf0NR8z4GLa8Bpkgs3p37obNpSBM6f4MkpURT0Whjp2CjLBvqcuIlKCyQ8gsRa7Mm2Jos8TDShGwNASPAbF7hJ12TKBM652vwg4PS73usc16K1TBY1H4WKFVQ3XyVYKshG2EVmbXBKNBNglAVCO5EcZnlIHmJLY7nvMKakqBM4ncjnUK0MyBR7eLfCE0X2Fj7uTRSz5WcZ4d3YrMa8jYsgmnPpsd65JN6\nADMIN_PASSWD' | veracrypt -t -c --volume-type normal --size 205M -p 3UArzGgtqgaPNqa5gjI0VbVaiGf7TJCenwD1mna5VXq6THXSUQXiBx4CGi12Lrkk --hash SHA-512 --filesystem NTFS --encryption AES
